@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Password Strength Checker</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="app-title">Password Checker</h1>
+    <p class="subtitle">How strong is your password?</p>
+
+    <!-- INPUT -->
+    <div class="input-card">
+      <div class="password-input-wrap">
+        <input type="password" id="passwordInput" placeholder="Enter your password..." oninput="checkPassword()"/>
+        <button class="toggle-vis" onclick="toggleVisibility()" id="visBtn">👁</button>
+      </div>
+
+      <!-- STRENGTH BAR -->
+      <div class="strength-bar-wrap">
+        <div class="strength-bar" id="strengthBar"></div>
+      </div>
+      <div class="strength-label" id="strengthLabel">Enter a password to check</div>
+
+      <!-- CRITERIA -->
+      <div class="criteria-list">
+        <div class="criteria-item" id="c-length">✕ At least 8 characters</div>
+        <div class="criteria-item" id="c-upper">✕ Uppercase letter (A-Z)</div>
+        <div class="criteria-item" id="c-lower">✕ Lowercase letter (a-z)</div>
+        <div class="criteria-item" id="c-number">✕ Number (0-9)</div>
+        <div class="criteria-item" id="c-symbol">✕ Symbol (!@#$...)</div>
+        <div class="criteria-item" id="c-long">✕ At least 12 characters (strong)</div>
+      </div>
+    </div>
+
+    <!-- GENERATOR -->
+    <div class="generator-card">
+      <h3>Password Generator</h3>
+
+      <div class="gen-options">
+        <div class="option-row">
+          <label>Length: <span id="lenVal">16</span></label>
+          <input type="range" id="genLength" min="8" max="32" value="16" oninput="updateLen()"/>
+        </div>
+        <div class="checkboxes">
+          <label><input type="checkbox" id="incUpper" checked/> Uppercase</label>
+          <label><input type="checkbox" id="incLower" checked/> Lowercase</label>
+          <label><input type="checkbox" id="incNumbers" checked/> Numbers</label>
+          <label><input type="checkbox" id="incSymbols" checked/> Symbols</label>
+        </div>
+      </div>
+
+      <div class="generated-wrap">
+        <div class="generated-password" id="generatedPassword">Click generate to create a password</div>
+        <button class="btn-copy" onclick="copyGenerated()" id="copyBtn">📋</button>
+      </div>
+
+      <button class="btn-generate" onclick="generatePassword()">⚡ Generate Password</button>
+    </div>
+
+    <!-- TIPS -->
+    <div class="tips-card">
+      <h3>Password Tips</h3>
+      <ul>
+        <li>Never reuse passwords across sites</li>
+        <li>Use a password manager to store them safely</li>
+        <li>Enable two-factor authentication everywhere</li>
+        <li>Avoid using personal info like birthdays</li>
+        <li>Longer passwords are always stronger</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer>Day 18 of 120 · Kishalaya Sarangi · NIT Rourkela</footer>
+  <script src="script.js"></script>
+</body>
+</html>
